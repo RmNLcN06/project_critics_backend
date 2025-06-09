@@ -8,5 +8,5 @@ public class SerieDTO {
     public String title;
     public int year;
     public List<String> types;
-    public Set<Long> actorsIds;
+    public Set<ActorShortDTO> actors;
 }

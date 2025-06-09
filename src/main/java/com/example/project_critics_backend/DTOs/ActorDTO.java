@@ -8,5 +8,5 @@ public class ActorDTO {
     public String lastname;
     public String firstname;
     public LocalDate dateOfBirth;
-    public Set<Long> seriesIds;
+    public Set<SerieShortDTO> series;
 }
