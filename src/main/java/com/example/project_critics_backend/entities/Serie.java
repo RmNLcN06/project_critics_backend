@@ -3,6 +3,7 @@ package com.example.project_critics_backend.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.HashSet;
 import java.util.List;
@@ -13,11 +14,14 @@ public class Serie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "The title cannot be empty")
     private String title;
+
     private int year;
 
     @ElementCollection
-    private List<String> types;
+    private List<@NotBlank(message = "The type cannot be empty") String> types;
 
     @ManyToMany
     @JoinTable(
