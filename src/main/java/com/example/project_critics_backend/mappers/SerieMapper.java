@@ -21,7 +21,7 @@ public class SerieMapper {
         dto.id = serie.getId();
         dto.title = serie.getTitle();
         dto.year = serie.getYear();
-        dto.types = serie.getTypes();
+        dto.genres = serie.getGenres();
         dto.actors = serie.getActors().stream().map(actor -> {
             ActorShortDTO actorShortDTO = new ActorShortDTO();
             actorShortDTO.id = actor.getId();
@@ -42,7 +42,7 @@ public class SerieMapper {
         serie.setId(serieDTO.id);
         serie.setTitle(serieDTO.title);
         serie.setYear(serieDTO.year);
-        serie.setTypes(serieDTO.types);
+        serie.setGenres(serieDTO.genres);
         serie.setActors(actors);
         return serie;
     }

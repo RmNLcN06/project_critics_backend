@@ -14,7 +14,7 @@ public class SerieDTO {
 
     public int year;
 
-    public List<@NotBlank(message = "A type cannot be empty") String> types;
+    public List<@NotBlank(message = "A genre cannot be empty") String> genres;
 
     public Set<@Valid ActorShortDTO> actors;
 }

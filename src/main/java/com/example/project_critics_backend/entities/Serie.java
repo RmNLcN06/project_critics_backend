@@ -20,8 +20,14 @@ public class Serie {
 
     private int year;
 
-    @ElementCollection
-    private List<@NotBlank(message = "The type cannot be empty") String> types;
+    @ManyToMany
+    @JoinTable(
+            name="serie_genre",
+            joinColumns = @JoinColumn(name = "serie_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id")
+    )
+    @JsonManagedReference
+    private Set<Genre> genres = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -57,12 +63,12 @@ public class Serie {
         this.year = year;
     }
 
-    public List<String> getTypes() {
-        return types;
+    public Set<Genre> getGenres() {
+        return genres;
     }
 
-    public void setTypes(List<String> types) {
-        this.types = types;
+    public void setGenres(Set<Genre> genres) {
+        this.genres = genres;
     }
 
     public Set<Actor> getActors() {
